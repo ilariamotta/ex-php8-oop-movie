@@ -1,12 +1,32 @@
 <?php
 
+trait HasRating
+{
+
+    public $rating;
+
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
+
+    public function getRating()
+    {
+        return $this->rating;
+    }
+}
+
 
 class Movie
 {
+
+    use HasRating;
+
     public $title;
     public $director;
     public $genres;
     public $netflix;
+
 
 
     public function __construct($_title, $_director, $_genres, $_netflix)
@@ -53,6 +73,5 @@ foreach ($movie1->genres as $genre) {
 
 echo "- " . $movie1->isOnNetflix() . "<br>";
 
-
-
-
+$movie1->setRating(8);
+echo $movie1->getRating();
