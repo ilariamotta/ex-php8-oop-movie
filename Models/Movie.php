@@ -26,7 +26,7 @@ class Movie
     public function isOnNetflix()
     {
         if ($this->netflix == true) {
-            return "Yes";
+            return "Sì";
         } else {
             return "No";
         }
