@@ -1,69 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div class="container">
+<?php 
+
+
+?>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
 <?php
 
-trait HasRating
-{
-
-    public $rating;
-
-    public function setRating($rating)
-    {
-        $this->rating = $rating;
-    }
-
-    public function getRating()
-    {
-        return $this->rating;
-    }
-}
+require_once "./Traits/HasRating.php";
+require_once "./Models/Movie.php";
+require_once "./Models/Genre.php";
+require_once "./db.php";
 
 
-class Movie
-{
-
-    use HasRating;
-
-    public $title;
-    public $director;
-    public $genres;
-    public $netflix;
-
-
-
-    public function __construct($_title, $_director, $_genres, $_netflix)
-    {
-        $this->title = $_title;
-        $this->director = $_director;
-        $this->genres = $_genres;
-        $this->netflix = $_netflix;
-    }
-
-    public function isOnNetflix()
-    {
-        if ($this->netflix == true) {
-            return "Yes";
-        } else {
-            return "No";
-        }
-    }
-}
-
-
-
-class Genre
-{
-    public $name;
-
-    public function __construct($_name)
-    {
-        $this->name = $_name;
-    }
-}
-
-$fantascienza = new Genre("Fantascienza");
-$drammatico = new Genre("Drammatico");
-
-$movie1 = new Movie("Interstellar", "Christopher Nolan", [$fantascienza, $drammatico], true);
-$movie2 = new Movie("Blade Runner", "Ridley Scott", [$fantascienza], false);
 
 echo $movie1->title . " - ";
 
@@ -75,3 +43,7 @@ echo "- " . $movie1->isOnNetflix() . "<br>";
 
 $movie1->setRating(8);
 echo $movie1->getRating();
+
+
+
+?>
